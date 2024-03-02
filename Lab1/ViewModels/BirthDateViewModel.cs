@@ -57,8 +57,7 @@ namespace Lab1Mindiuk.ViewModels
             set
             {
                 _westernZodiacSign = value;
-                OnPropertyChanged();
-                
+                OnPropertyChanged();  
             }
         }
 
@@ -71,8 +70,7 @@ namespace Lab1Mindiuk.ViewModels
             set
             {
                 _chineseZodiacSign = value;
-                OnPropertyChanged();
-                
+                OnPropertyChanged(); 
             }
         }
 
@@ -117,21 +115,17 @@ namespace Lab1Mindiuk.ViewModels
                                                           $" Today you are {age} {yearsOld} old. Enjoy your special day! 🎉🎂🎈";
                     MessageBox.Show(birthdayGreeting);
                 }
-
             }
         }
 
         private int DetermineAge()
         {
             DateTime today = DateTime.Today;
-
             int age = today.Year - BirthDate.Year;
-
             if (today.Month < BirthDate.Month || (today.Month == BirthDate.Month && today.Day < BirthDate.Day))
             {
                 age--;
             }
-
             return age;
         }
 
@@ -147,24 +141,21 @@ namespace Lab1Mindiuk.ViewModels
             int day = birthDate.Day;
             int month = birthDate.Month;
 
-            string[] zodiacSigns = 
+            string[] zodiacSigns =
             {
                 "Capricorn", "Aquarius", "Pisces", "Aries",
                 "Taurus", "Gemini", "Cancer", "Leo",
                 "Virgo", "Libra", "Scorpio", "Sagittarius"
             };
 
-            
-            int[] startZodiacSignDate = 
+            int[] startZodiacSignDate =
             {
                 20, 19, 21, 20,
                 21, 21, 23, 23,
                 23, 23, 22, 22
             };
 
-           
             int index = (month - 1 + (day >= startZodiacSignDate[month - 1] ? 1 : 0)) % 12;
-
             return zodiacSigns[index];
         }
 
