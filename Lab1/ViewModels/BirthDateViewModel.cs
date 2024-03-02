@@ -15,6 +15,18 @@ namespace Lab1Mindiuk.ViewModels
         private string _chineseZodiacSign;
         private RelayCommand<object> _showBirthDateInfoCommand;
 
+        public DateTime BirthDate
+        {
+            get
+            {
+                return _user.BirthDate;
+            }
+            set
+            {
+                _user.BirthDate = value;
+            }
+        }
+
         public string Age
         {
             get 
@@ -64,18 +76,6 @@ namespace Lab1Mindiuk.ViewModels
             }
         }
 
-        public DateTime BirthDate
-        {
-            get 
-            {
-                return _user.BirthDate;
-            }
-            set
-            {
-                _user.BirthDate = value;
-            }
-        }
-
         public RelayCommand<object> ShowBirthDateInfoCommand => _showBirthDateInfoCommand ??= new RelayCommand<object>(_ => ShowBirthDateInfo(), CanExecute);
 
         private bool CanExecute(object parameter) => BirthDate != DateTime.MinValue;
@@ -120,7 +120,6 @@ namespace Lab1Mindiuk.ViewModels
 
             }
         }
-
 
         private int DetermineAge()
         {
@@ -168,8 +167,6 @@ namespace Lab1Mindiuk.ViewModels
 
             return zodiacSigns[index];
         }
-
-
 
         private string DetermineChineseZodiacSign(DateTime birthDate)
         {
